@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Nintendo Theme Core
-  static const Color primaryRed = Color(0xFFE3350D);
-  static const Color darkBackground = Color(0xFF111111);
-  static const Color darkSurface = Color(0xFF1E1E1E);
-  static const Color darkSurfaceLight = Color(0xFF2C2C2C);
+  // Light Theme Core
+  static const Color primaryBlue = Color(0xFF58ABF6); // Replaced red to match generic light ui often seen in modern UI
+  static const Color lightBackground = Color(0xFFF5F7FA); // Very slight off height for scaffold
+  static const Color whiteSurface = Color(0xFFFFFFFF); // Pure white cards
   
-  static const Color textWhite = Color(0xFFFFFFFF);
-  static const Color textGrey = Color(0xFFAAAAAA);
+  static const Color textBlack = Color(0xFF2C3E50); // Dark sleek text
+  static const Color textGrey = Color(0xFF7F8C8D); // Subtitles
 
   // Pokemon Type Colors
-  static const Color typeFire = Color(0xFFF08030);
-  static const Color typeWater = Color(0xFF6890F0);
-  static const Color typeGrass = Color(0xFF78C850);
-  static const Color typeElectric = Color(0xFFF8D030);
+  static const Color typeFire = Color(0xFFFFA756); // Softer bright colors suitable for light UI
+  static const Color typeWater = Color(0xFF58ABF6);
+  static const Color typeGrass = Color(0xFF8BBE8A);
+  static const Color typeElectric = Color(0xFFFFCE4B);
   static const Color typePoison = Color(0xFFA040A0);
   static const Color typeIce = Color(0xFF98D8D8);
   static const Color typeFighting = Color(0xFFC03028);

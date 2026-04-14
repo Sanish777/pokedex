@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/core/theme/app_colors.dart';
+import 'package:pokedex/features/details/pokemon_detail_screen.dart';
 
 class PokemonCard extends StatelessWidget {
   final int id;
+  final int index;
   final String name;
   final String primaryType; // e.g. "Grass"
   final String imageUrl;
@@ -10,6 +12,7 @@ class PokemonCard extends StatelessWidget {
   const PokemonCard({
     super.key,
     required this.id,
+    required this.index,
     required this.name,
     required this.primaryType,
     required this.imageUrl,
@@ -19,13 +22,21 @@ class PokemonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final typeColor = AppColors.getColorForType(primaryType);
 
-    return Container(
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => PokemonDetailScreen(initialIndex: index),
+          ),
+        );
+      },
+      child: Container(
       decoration: BoxDecoration(
-        color: AppColors.darkSurface,
+        color: AppColors.whiteSurface,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: typeColor.withOpacity(0.15),
+            color: typeColor.withValues(alpha: 0.15),
             blurRadius: 15,
             offset: const Offset(0, 8),
           ),
@@ -43,7 +54,7 @@ class PokemonCard extends StatelessWidget {
                     center: const Alignment(0.8, 0.8),
                     radius: 0.8,
                     colors: [
-                      typeColor.withOpacity(0.4),
+                      typeColor.withValues(alpha: 0.4),
                       Colors.transparent,
                     ],
                   ),
@@ -58,7 +69,7 @@ class PokemonCard extends StatelessWidget {
             child: Icon(
               Icons.catching_pokemon,
               size: 140,
-              color: Colors.white.withOpacity(0.04),
+              color: Colors.white.withValues(alpha: 0.04),
             ),
           ),
           
@@ -92,9 +103,9 @@ class PokemonCard extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
-                        color: typeColor.withOpacity(0.2),
+                        color: typeColor.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: typeColor.withOpacity(0.5)),
+                        border: Border.all(color: typeColor.withValues(alpha: 0.5)),
                       ),
                       child: Text(
                         primaryType,
@@ -127,6 +138,7 @@ class PokemonCard extends StatelessWidget {
           ),
         ],
       ),
+     ),
     );
   }
 }

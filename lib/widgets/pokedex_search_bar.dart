@@ -10,7 +10,7 @@ class PokedexSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       onChanged: onChanged,
-      style: const TextStyle(color: AppColors.textWhite),
+      style: const TextStyle(color: AppColors.textBlack),
       decoration: const InputDecoration(
         hintText: 'Search Pokémon, Move, Ability etc',
         prefixIcon: Icon(Icons.search),
